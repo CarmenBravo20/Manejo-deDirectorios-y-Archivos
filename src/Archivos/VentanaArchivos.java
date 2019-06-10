@@ -429,12 +429,35 @@ public class VentanaArchivos extends javax.swing.JFrame {
             String rutaArchivoSeleccionado = txtRutas.getText().trim() + "\\" + archivoSeleccionado;
             File archivo = new File(rutaArchivoSeleccionado);
             //archivo.delete();
-           // eliminarTodo(archivo);
+            eliminarTodo(archivo);
             JOptionPane.showMessageDialog(this, "Eliminado Correcmente");
             listarArchivos(txtRutas.getText().trim());
         }
     }//GEN-LAST:event_menuItemEliminarActionPerformed
 
+    
+    private void eliminarTodo(File file) {
+        if (file.isDirectory()) {
+
+            if (file.list().length==0) {
+                file.delete();
+            } else {
+                for (String f : file.list()) {
+                    File eliminar=new File(file,f);
+
+                    //Recursividad
+                    eliminarTodo(eliminar);
+
+                }
+                if (file.list().length==0) {
+                    file.delete();
+                }
+            }
+        } else {
+            file.delete();
+        }
+
+    }
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         
