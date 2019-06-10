@@ -286,6 +286,11 @@ public class VentanaArchivos extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         menuSalir.setText("Salir");
+        menuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSalirMouseClicked(evt);
+            }
+        });
         menuSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuSalirActionPerformed(evt);
@@ -364,6 +369,7 @@ public class VentanaArchivos extends javax.swing.JFrame {
             }
         }
 
+        // trim elimina espacios tanto de derecha como izquierda
         listarArchivos(txtRutas.getText().trim());
     }//GEN-LAST:event_menuItemNuevoAchivoActionPerformed
 
@@ -461,12 +467,6 @@ public class VentanaArchivos extends javax.swing.JFrame {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         
-      
-    
-    }//GEN-LAST:event_btnRegresarActionPerformed
-
-    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
-        // TODO add your handling code here:
       String r=txtRutas.getText().trim();
         for (int i=r.length()-1;i>1;i--){
            if ((int)txtRutas.getText().trim().charAt(i)==92){
@@ -476,7 +476,19 @@ public class VentanaArchivos extends javax.swing.JFrame {
                break;
            }
         }
+    
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
+        // TODO add your handling code here:
+        
+      
     }//GEN-LAST:event_menuSalirActionPerformed
+
+    private void menuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_menuSalirMouseClicked
 
    
 
