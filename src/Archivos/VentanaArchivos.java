@@ -467,7 +467,15 @@ public class VentanaArchivos extends javax.swing.JFrame {
 
     private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
         // TODO add your handling code here:
-      
+      String r=txtRutas.getText().trim();
+        for (int i=r.length()-1;i>1;i--){
+           if ((int)txtRutas.getText().trim().charAt(i)==92){
+               r=txtRutas.getText().trim().substring(0,i);
+               txtRutas.setText(r);
+               btnListarActionPerformed(evt);
+               break;
+           }
+        }
     }//GEN-LAST:event_menuSalirActionPerformed
 
    
